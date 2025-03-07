@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Game } from './game';
-import { CANVAS_HEIGHT, CANVAS_WIDTH, CANVAS_REF } from './utils/constants';
+import CreateRoom from './components/CreateRoom';
+import JoinRoom from './components/JoinRoom';
+
 
 class App extends Component {
 
+
+  state = {
+    data: null
+  }
   game = null;
 
   start = async () => {
+    console.log(this.state.data.data);
     this.game = new Game();
     await this.game.init();
     this.loop();
@@ -29,18 +36,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div id='canvasDiv'>
-          <canvas
-            ref={CANVAS_REF}
-            height={CANVAS_HEIGHT}
-            width={CANVAS_WIDTH}
-          ></canvas>
-
-          <div style={{ textAlign: 'center' }}>
-            <button id='startButton' className='gameButton' onClick={this.start}>START</button>
-            <button className='gameButton' onClick={this.restart}>RESTART</button>
-          </div>
-
+        <div className='app-buttons'>
+          <CreateRoom />
+          <JoinRoom />
         </div>
       </div >
     );

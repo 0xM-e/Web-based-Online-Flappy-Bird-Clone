@@ -1,14 +1,23 @@
 .App {
-  height: 100%;
+  width: 100vw;
+  text-align: center;
+  margin-top: 30%;
+}
 
-}
-#root, html, body{
+#root,
+html,
+body {
   height: 100%;
-  background-color: green;
+  /* background-color: rgba(0, 128, 0, 0.384); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.Canvas{
+
+.Canvas {
   background-color: white;
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -39,7 +48,15 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.app-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
