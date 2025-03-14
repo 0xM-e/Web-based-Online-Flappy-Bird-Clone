@@ -53,10 +53,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
-.app-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}

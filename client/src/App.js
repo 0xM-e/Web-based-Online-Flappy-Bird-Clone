@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Game } from './game';
-import CreateRoom from './components/CreateRoom';
-import JoinRoom from './components/JoinRoom';
+import Rooms from './pages/Rooms';
+import Home from './pages/Home';
 
 
 class App extends Component {
@@ -36,10 +37,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className='app-buttons'>
-          <CreateRoom />
-          <JoinRoom />
-        </div>
+        <Routes>
+          <Route path='/' element={<Home />}></Route >
+          <Route path="/room/:roomName" element={<Rooms />} />
+        </Routes>
       </div >
     );
   }
