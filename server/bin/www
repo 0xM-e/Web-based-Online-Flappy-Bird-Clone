@@ -4,6 +4,8 @@
  * Module dependencies.
  */
 
+const { addPlayerToRoom, removePlayerFromRoom } = require('../utils/playerUtils.js');
+
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
@@ -20,10 +22,48 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+const { Server } = require('socket.io');
+const io = new Server(server, {
+  cors: {
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+  }
+});
 
 /**
  * Listen on provided port, on all network interfaces.
  */
+
+io.on('connection', socket => {
+  console.log('A new user has connected. Socket ID: ' + socket.id);
+
+  // user joins a room
+  socket.on('joinRoom', data => {
+    socket.join(data.roomName);
+    console.log(`${socket.id} has joined the room: ${data.roomName}`);
+    addPlayerToRoom(data);
+  });
+
+  // send a message to all users in the room
+  socket.on('sendMessage', data => {
+    socket.broadcast.to(data.roomName).emit('receiveMessage', data.message);
+  });
+
+  // user leaves the room
+  socket.on('leaveRoom', data => {
+    socket.leave(data.roomName);
+    console.log(`${socket.id} has left the room: ${data.roomName}`);
+    removePlayerFromRoom(data);
+  });
+
+  // user disconnect from the server
+  socket.on('disconnect', () => {
+    console.log(`${socket.id} has disconnected`);
+    removePlayerFromRoom(data);
+  });
+});
+
 
 server.listen(port);
 server.on('error', onError);
