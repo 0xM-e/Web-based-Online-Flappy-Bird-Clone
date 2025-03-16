@@ -1,7 +1,9 @@
 .App {
   width: 100vw;
   text-align: center;
-  margin-top: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #root,

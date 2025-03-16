@@ -1,0 +1,238 @@
+.room-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow-x: hidden;
+    flex-direction: column;
+}
+
+.game-wrapper {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 128, 0, 0.26);
+    border: 1px solid rgb(0, 100, 0);
+    padding: 20px;
+}
+
+.room-view {
+    background-color: #a3ffff9d;
+    margin-right: 20px;
+    width: 350px;
+    text-align: left;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.room-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 10px;
+    border-bottom: 2px solid #008cff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.player-list,
+.score-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.player-list {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.player-list li,
+.score-list li {
+    background: #40444b;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.score {
+    font-weight: bold;
+    color: #43b581;
+}
+
+.leave-button {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+
+}
+
+.leave-button:hover {
+    background-color: #ff1a1a;
+}
+
+.game-canvas-container {
+    flex: 1;
+    position: relative;
+    margin-right: 20px;
+    height: 500px;
+    width: 500px;
+    border-radius: 10px;
+    background-image: url('../background.jpg');
+    background-size: cover;
+}
+
+canvas {
+    border-radius: 10px;
+}
+
+.chat-wrapper {
+    width: 350px;
+    background-color: #a3ffff9d;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chat-header {
+    /* background-color: #40444b; */
+    border-bottom: 1px solid #28a745;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: scroll;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    max-height: 340px;
+    background-color: rgba(255, 255, 255, 0.65);
+    border-radius: 5px;
+    position: relative;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background-color: #28a745;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.game-buttons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    color: white;
+    border: none;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.game-button {
+    width: 100%;
+    border-radius: 0;
+    transition: 0.3s;
+}
+
+.message-item {
+    padding: 5px;
+    border-radius: 8px;
+    margin: 5px 0;
+    max-width: 75%;
+    display: flex;
+    align-items: center;
+}
+
+.message-item.isSender {
+    color: white;
+    align-self: flex-end;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.message-item.isSender .message-text {
+    background-color: #33aaff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: white;
+}
+
+.message-item:not(.isSender) .message-text {
+    background-color: #ff3333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.message-item.isSender .message-avatar {
+    transform: scaleX(-1);
+}
+
+.chat-input-wrapper {
+    display: flex;
+    align-items: baseline;
+
+}
+
+.chat-input {
+    padding: 10px;
+    width: 80%;
+    border-radius: 20px;
+    border: 1px solid #cccc;
+    margin-right: 10px;
+    outline: none;
+}
+
+.chat-input:focus {
+    border: 1px solid green;
+    box-sizing: content-box;
+}
+
+.send-message-button {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    width: 75px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-message-button:hover {
+    background-color: #1e7e34;
+}
