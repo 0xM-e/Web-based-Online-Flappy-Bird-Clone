@@ -65,24 +65,24 @@ export class Game {
         this.isHit = false;
 
         //Load  Birds Image
-        this.birdsCostume.blueBird.birdUpFlap = await this.LoadImage('./assets/bluebird-upflap.png');
-        this.birdsCostume.blueBird.birdDownFlap = await this.LoadImage('./assets/bluebird-downflap.png');
-        this.birdsCostume.blueBird.birdMidFlap = await this.LoadImage('./assets/bluebird-midflap.png');
-        this.birdsCostume.redBird.birdUpFlap = await this.LoadImage('./assets/redbird-upflap.png');
-        this.birdsCostume.redBird.birdDownFlap = await this.LoadImage('./assets/redbird-downflap.png');
-        this.birdsCostume.redBird.birdMidFlap = await this.LoadImage('./assets/redbird-midflap.png');
+        this.birdsCostume.blueBird.birdUpFlap = await this.LoadImage('/assets/bluebird-upflap.png');
+        this.birdsCostume.blueBird.birdDownFlap = await this.LoadImage('/assets/bluebird-downflap.png');
+        this.birdsCostume.blueBird.birdMidFlap = await this.LoadImage('/assets/bluebird-midflap.png');
+        this.birdsCostume.redBird.birdUpFlap = await this.LoadImage('/assets/redbird-upflap.png');
+        this.birdsCostume.redBird.birdDownFlap = await this.LoadImage('/assets/redbird-downflap.png');
+        this.birdsCostume.redBird.birdMidFlap = await this.LoadImage('/assets/redbird-midflap.png');
 
         //Load  Pipes and other Images
-        this.backGround = await this.LoadImage('./assets/background.png');
-        this.bottomPipe = await this.LoadImage('./assets/pipe-green-bottom.png');
-        this.topPipe = await this.LoadImage('./assets/pipe-green-top.png');
-        this.base = await this.LoadImage('./assets/base.png');
+        this.backGround = await this.LoadImage('/assets/background.png');
+        this.bottomPipe = await this.LoadImage('/assets/pipe-green-bottom.png');
+        this.topPipe = await this.LoadImage('/assets/pipe-green-top.png');
+        this.base = await this.LoadImage('/assets/base.png');
 
         //Load Audio
-        this.jumpAudio = await this.LoadAudio('./assets/wing.wav')
-        this.pointAudio = await this.LoadAudio('./assets/point.wav')
-        this.gameOverAudio = await this.LoadAudio('./assets/die.wav')
-        this.hitAudio = await this.LoadAudio('./assets/hit.wav');
+        this.jumpAudio = await this.LoadAudio('/assets/wing.wav')
+        this.pointAudio = await this.LoadAudio('/assets/point.wav')
+        this.gameOverAudio = await this.LoadAudio('/assets/die.wav')
+        this.hitAudio = await this.LoadAudio('/assets/hit.wav');
 
 
         window.addEventListener('keydown', this.onKeyPress.bind(this))
@@ -197,6 +197,7 @@ export class Game {
 
         // game area
         this.context.clearRect(0, 0, CANVAS_REF.current.width, CANVAS_REF.current.height);
+        console.log(this.backGround);
         this.context.drawImage(this.backGround, 0, 0, CANVAS_REF.current.width, CANVAS_REF.current.height);
         this.context.drawImage(this.base, 0, HEIGHT, CANVAS_WIDTH, CANVAS_HEIGHT - HEIGHT);
 
